@@ -1,4 +1,4 @@
-# sandipan_demo
-This is my first project
+# QR CODE GENERATOR APP
+This is qr code generator app using HTML, CSS,JS and QR API
 <br>
-Author-Sandipan Das and Ranita Das
+Author-Sandipan Das 
