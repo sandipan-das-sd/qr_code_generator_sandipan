@@ -408,7 +408,31 @@
                 <p>Download your QR code and start using it</p>
             </div>
         </div>
-
+        <div class="qr-types">
+            <h2>Choose Your QR Code Type</h2>
+            <div class="type-grid">
+                <div class="type-card" onclick="selectType('url')">
+                    <i class="fas fa-link fa-3x" style="color: #667eea; margin-bottom: 1rem;"></i>
+                    <h3>Website URL</h3>
+                    <p>Link to your website or any web page</p>
+                </div>
+                <div class="type-card" onclick="selectType('text')">
+                    <i class="fas fa-font fa-3x" style="color: #667eea; margin-bottom: 1rem;"></i>
+                    <h3>Plain Text</h3>
+                    <p>Share messages or plain text content</p>
+                </div>
+                <div class="type-card" onclick="selectType('contact')">
+                    <i class="fas fa-address-card fa-3x" style="color: #667eea; margin-bottom: 1rem;"></i>
+                    <h3>Contact Card</h3>
+                    <p>Share contact information instantly</p>
+                </div>
+                <div class="type-card" onclick="selectType('wifi')">
+                    <i class="fas fa-wifi fa-3x" style="color: #667eea; margin-bottom: 1rem;"></i>
+                    <h3>WiFi Details</h3>
+                    <p>Connect to WiFi networks easily</p>
+                </div>
+            </div>
+        </div>
         <div class="input-section">
             <div class="input-group">
                 <label for="qr-text">Enter Text or URL</label>
@@ -425,6 +449,26 @@
             <div class="qr-container">
                 <img src="" alt="QR Code" id="qr-image" class="qr-image">
             </div>
+            <div class="download-section">
+                <select class="download-format" id="download-format">
+                    <option value="png">PNG Image</option>
+                    <option value="svg">SVG Vector</option>
+                    <option value="pdf">PDF Document</option>
+                </select>
+                <button class="download-btn" id="downloadBtn">
+                    <i class="fas fa-download"></i> Download QR Code
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="loading"></div>
+
+        <div class="result-section" id="result-section">
+            <div class="qr-container">
+                <img src="" alt="QR Code" id="qr-image" class="qr-image">
+            </div>
             <button class="download-btn" id="downloadBtn">
                 <i class="fas fa-download"></i> Download QR Code
             </button>
@@ -432,6 +476,152 @@
     </div>
 
     <script>
+        const QR_TYPES = {
+    url: {
+        placeholder: 'Enter website URL (e.g., https://www.example.com)',
+        validate: (text) => {
+            try {
+                new URL(text);
+                return true;
+            } catch {
+                return false;
+            }
+        },
+        format: (text) => text
+    },
+    text: {
+        placeholder: 'Enter your text message',
+        validate: (text) => text.length > 0,
+        format: (text) => text
+    },
+    contact: {
+        placeholder: 'Format: MECARD:N:[name];TEL:[phone];EMAIL:[email];;',
+        validate: (text) => text.includes('MECARD:'),
+        format: (text) => {
+            if (text.startsWith('MECARD:')) return text;
+            const [name = '', phone = '', email = ''] = text.split(',').map(s => s.trim());
+            return `MECARD:N:${name};TEL:${phone};EMAIL:${email};;`;
+        }
+    },
+    wifi: {
+        placeholder: 'Format: WIFI:T:WPA;S:[network-name];P:[password];;',
+        validate: (text) => text.includes('WIFI:'),
+        format: (text) => {
+            if (text.startsWith('WIFI:')) return text;
+            const [ssid = '', password = ''] = text.split(',').map(s => s.trim());
+            return `WIFI:T:WPA;S:${ssid};P:${password};;`;
+        }
+    }
+};
+
+let currentType = 'url';
+
+// Function to handle QR type selection
+function selectType(type) {
+    currentType = type;
+    
+    // Remove active class from all cards
+    document.querySelectorAll('.type-card').forEach(card => {
+        card.classList.remove('active');
+    });
+    
+    // Add active class to selected card
+    const selectedCard = document.querySelector(`.type-card[onclick="selectType('${type}')"]`);
+    if (selectedCard) {
+        selectedCard.classList.add('active');
+    }
+    
+    // Update input placeholder
+    const input = document.getElementById('qr-text');
+    input.placeholder = QR_TYPES[type].placeholder;
+}
+
+// Function to generate QR code
+async function generateQR() {
+    const text = document.getElementById('qr-text').value;
+    const qrImage = document.getElementById('qr-image');
+    const resultSection = document.getElementById('result-section');
+    const loading = document.querySelector('.loading');
+
+    if (!text) {
+        alert('Please enter the required information');
+        return;
+    }
+
+    // Validate input based on type
+    if (!QR_TYPES[currentType].validate(text)) {
+        alert(`Invalid format for ${currentType}. Please check the placeholder for correct format.`);
+        return;
+    }
+
+    // Format the text based on type
+    const formattedText = QR_TYPES[currentType].format(text);
+
+    // Show loading animation
+    loading.style.display = 'block';
+    resultSection.style.display = 'none';
+
+    try {
+        // Generate QR code using the QR Server API
+        const size = 200;
+        const apiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(formattedText)}`;
+        
+        // Set image source
+        qrImage.src = apiUrl;
+
+        // When image loads
+        qrImage.onload = function() {
+            loading.style.display = 'none';
+            resultSection.style.display = 'block';
+            resultSection.scrollIntoView({ behavior: 'smooth' });
+        };
+    } catch (error) {
+        alert('Error generating QR code. Please try again.');
+        loading.style.display = 'none';
+    }
+}
+
+// Function to download QR code
+async function downloadQRCode() {
+    const format = document.getElementById('download-format').value;
+    const qrImage = document.getElementById('qr-image');
+    
+    if (!qrImage.src) {
+        alert('Please generate a QR code first');
+        return;
+    }
+
+    try {
+        // Fetch the image as blob
+        const response = await fetch(qrImage.src);
+        const blob = await response.blob();
+
+        // Create download link
+        const a = document.createElement('a');
+        a.href = window.URL.createObjectURL(blob);
+        a.download = `qr-code.${format}`;
+        document.body.appendChild(a);
+        a.click();
+        
+        // Cleanup
+        window.URL.revokeObjectURL(a.href);
+        document.body.removeChild(a);
+    } catch (error) {
+        alert('Error downloading QR code. Please try again.');
+    }
+}
+
+// Initialize event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    // Set initial type
+    selectType('url');
+    
+    // Add download button event listener
+    const downloadBtn = document.getElementById('downloadBtn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', downloadQRCode);
+    }
+});
         function generateQR() {
             const text = document.getElementById('qr-text').value;
             const qrImage = document.getElementById('qr-image');
@@ -458,16 +648,43 @@
                 resultSection.scrollIntoView({ behavior: 'smooth' });
             };
         }
+          // Remove active class from all cards
+          document.querySelectorAll('.type-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Add active class to selected card
+            event.currentTarget.classList.add('active');
+            
+            // Update input placeholder based on type
+            const input = document.getElementById('qr-text');
+            switch(type) {
+                case 'url':
+                    input.placeholder = 'Enter website URL (e.g., https://www.example.com)';
+                    break;
+                case 'text':
+                    input.placeholder = 'Enter your text message';
+                    break;
+                case 'contact':
+                    input.placeholder = 'Enter contact details (Name, Phone, Email)';
+                    break;
+                case 'wifi':
+                    input.placeholder = 'Enter WiFi network name and password';
+                    break;
+            }
+        
 
-        document.getElementById('downloadBtn').addEventListener('click', function() {
+            document.getElementById('downloadBtn').addEventListener('click', function() {
+            const format = document.getElementById('download-format').value;
             const qrImage = document.getElementById('qr-image');
+            
             if (qrImage.src) {
                 const xhr = new XMLHttpRequest();
                 xhr.responseType = 'blob';
                 xhr.onload = function() {
                     const a = document.createElement('a');
                     a.href = window.URL.createObjectURL(xhr.response);
-                    a.download = 'qr-code.png';
+                    a.download = `qr-code.${format}`;
                     a.style.display = 'none';
                     document.body.appendChild(a);
                     a.click();
