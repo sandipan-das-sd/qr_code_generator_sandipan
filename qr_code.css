@@ -1,4 +1,4 @@
-body {
+/* body {
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu', sans-serif;
@@ -8,53 +8,47 @@ body {
 .main {
     background-color: blanchedalmond;
     text-align: center;
-    height: 28.125rem; /* Converted from 450px */
-    margin: 6.25rem auto; /* Converted from 100px */
-    padding: 1.25rem; /* Converted from 20px */
-    max-width: 37.5rem; /* Converted from 600px */
-    border: 0.1875rem red solid; /* Converted from 3px */
+    height: 28.125rem; 
+    margin: 6.25rem auto; 
+    padding: 1.25rem; 
+    max-width: 37.5rem; 
+    border: 0.1875rem red solid; 
 }
 
 .main header p {
     font-weight: bold;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1.25rem; /* Converted from 20px */
+    font-size: 1.25rem; 
 }
 
 .input-box input[type=text],
 .input-box select {
-    width: 15rem; /* Converted from 40% */
-    padding: 0.75rem 1.25rem; /* Converted from 12px 20px */
-    margin: 0.5rem 0; /* Converted from 8px */
-    border: 0.1875rem solid #0c4bdf; /* Converted from 3px */
-    border-radius: 0.25rem; /* Converted from 4px */
+    width: 15rem; 
+    padding: 0.75rem 1.25rem; 
+    margin: 0.5rem 0; 
+    border: 0.1875rem solid #0c4bdf; 
+    border-radius: 0.25rem; 
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: bold;
 }
-/* .img-border {
-    text-align: center; /* Center the QR code inside its parent */
-    /*margin-top: 20px; /* Add top margin */
-   /* padding: 20px; /* Add padding */
-    /*border: 2px solid red; /* Add border */
-   /* display: none;
-} */
+
 
 #qr-image {
-    max-width: 100%; /* Ensure the QR code does not exceed its parent's width */
+    max-width: 100%; 
 }
 
 
 .img-border {
-    border: 0.125rem solid red; /* Converted from 2px */
-    margin-top: 1.25rem; /* Converted from 20px */
-    padding: 0.625rem; /* Converted from 10px */
+    border: 0.125rem solid red; 
+    margin-top: 1.25rem; 
+    padding: 0.625rem; 
     width: 25%;
     margin: 25px;
     
     display: none;
 }
 #qr-image {
-    display: none; /* Hide the image by default */
+    display: none; 
 }
 
 
@@ -63,12 +57,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1.25rem; /* Converted from 20px */
+    margin-top: 1.25rem; 
 }
 
 button {
     border: none;
-    border-radius: 1.25rem; /* Converted from 20px */
+    border-radius: 1.25rem; 
     background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
     transition: all 1.5s ease;
     font-family: 'Ropa Sans', sans-serif;
@@ -79,17 +73,17 @@ button {
 
 button span {
     display: inline-block;
-    padding: 0.9375rem 2.1875rem; /* Converted from 15px 35px */
-    font-size: 1.0625rem; /* Converted from 17px */
-    border-radius: 1.25rem; /* Converted from 20px */
+    padding: 0.9375rem 2.1875rem; 
+    font-size: 1.0625rem; 
+    border-radius: 1.25rem; 
     background: #ffffff10;
-    backdrop-filter: blur(1.25rem); /* Converted from 20px */
+    backdrop-filter: blur(1.25rem); 
     transition: 0.4s ease-in-out;
     transition-property: color;
 }
 
 button:hover span {
-    backdrop-filter: blur(0); /* Converted from 0px */
+    backdrop-filter: blur(0); 
     color: #ffffff;
 }
 
@@ -97,10 +91,10 @@ button:hover span {
     background-color: DodgerBlue;
     border: none;
     color: white;
-    padding: 0.75rem 1.875rem; /* Converted from 12px 30px */
+    padding: 0.75rem 1.875rem; 
     cursor: pointer;
-    font-size: 1.25rem; /* Converted from 20px */
-    bottom: 9rem; /* Converted from 20% */
+    font-size: 1.25rem; 
+    bottom: 9rem; 
     position: absolute;
     justify-content: center;
 }
@@ -114,22 +108,225 @@ button:hover span {
 }
 @media screen and (max-width: 600px) {
     .btn {
-        left: 50%; /* Center the button horizontally on smaller screens */
-        transform: translateX(-50%); /* Center the button using a negative margin */
-        bottom: 3rem; /* Adjust the vertical position of the button */
+        left: 50%; 
+        transform: translateX(-50%); 
+        bottom: 3rem; 
     }
 }
 
 @media screen and (max-width: 1024px) {
     .btn {
-        left: 50%; /* Center the button horizontally on medium-sized screens */
+        left: 50%; 
         top: 50%;
         
         
         height: 15%;
         right: 100%;
         width: 25%;
-        transform: translateX(-50%); /* Center the button using a negative margin */
-        bottom: 3rem; /* Adjust the vertical position of the button */
+        transform: translateX(-50%); 
+        bottom: 3rem; 
     }
+} */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Roboto Slab', serif;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    background: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    min-height: 500px;
+    margin: 2rem;
+    padding: 2rem;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main header p {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #1a2a6c;
+    margin: 0 0 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #1a2a6c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.input-box {
+    margin: 2rem 0;
+}
+
+.input-box input[type=text] {
+    width: 80%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: 2px solid #1a2a6c;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-box input[type=text]:focus {
+    outline: none;
+    border-color: #b21f1f;
+    box-shadow: 0 0 10px rgba(178, 31, 31, 0.3);
+    transform: scale(1.02);
+}
+
+.generate-button {
+    margin: 2rem 0;
+}
+
+.generate-button button {
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.generate-button button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.generate-button button:hover::before {
+    left: 100%;
+}
+
+.generate-button button span {
+    display: block;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.generate-button button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.img-border {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    width: auto;
+    margin: 2rem auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: none;
+    transition: all 0.3s ease;
+}
+
+#qr-image {
+    display: none;
+    max-width: 150px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+#qr-image:hover {
+    transform: scale(1.05);
+}
+
+.btn {
+    background: linear-gradient(45deg, #1a2a6c, #b21f1f);
+    border: none;
+    color: white;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    position: relative;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn i {
+    font-size: 1.2rem;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, #b21f1f, #1a2a6c);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+@media screen and (max-width: 600px) {
+    .main {
+        margin: 1rem;
+        padding: 1.5rem;
+        width: 90%;
+    }
+
+    .input-box input[type=text] {
+        width: 90%;
+    }
+
+    .main header p {
+        font-size: 1.5rem;
+    }
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 20px auto;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #1a2a6c;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }

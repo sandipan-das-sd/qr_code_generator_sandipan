@@ -1,42 +1,1020 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR CODE GENERATOR APP</title>
-    <link rel="shortcut icon" href="data:image/png;base64,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" type="image/x-icon">
-    <link rel="stylesheet" href="qr_code.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-</head>
+    <title>Professional QR Code Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .header h1 {
+            color: #2d3748;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            color: #718096;
+            font-size: 1.1rem;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem;
+            background: #f7fafc;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step i {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .input-section {
+            margin: 2rem 0;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .generate-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .generate-btn:active {
+            transform: translateY(0);
+        }
+
+        .result-section {
+            display: none;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .qr-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .qr-image {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .download-btn {
+            background: #48bb78;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #38a169;
+            transform: translateY(-2px);
+        }
+
+        .loading {
+            display: none;
+            margin: 1rem 0;
+        }
+
+        .loading::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 30px;
+            margin: 0 auto;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .steps {
+                flex-direction: column;
+            }
+
+            .step {
+                min-width: 100%;
+            }
+        }
+        .benefits {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f6f9fc, #edf2f7);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .benefits h2 {
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: left;
+            transition: transform 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-item i {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-item h3 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .benefit-item p {
+            color: #718096;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
 <body>
-    <div class="main">
-        <header><!-- First line -->
-            <p>Generate QR Code by One Click</p>
-        </header>
-        <div class="input-box"><!-- Input box -->
-            <input type="text" placeholder="Write something Text only" id="qr-text">
+    <div class="container">
+        <div class="header">
+            <h1>Professional QR Code Generator</h1>
+            <p>Create custom QR codes for your business or personal use in seconds</p>
         </div>
-        <div class="generate-button"><!-- Generate button -->
-            <button onclick="generate_qr()">
-                <span> Click here </span>
+        <div class="benefits">
+            <h2>Why Choose Our QR Code Generator?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-store"></i>
+                    <h3>Business Growth</h3>
+                    <p>Enhance customer engagement by connecting physical materials to digital content. Perfect for menus, business cards, and promotional materials.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Contactless Solutions</h3>
+                    <p>Provide safe, touch-free access to information and services. Ideal for modern business operations and customer interactions.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Track & Analyze</h3>
+                    <p>Create unique QR codes for different campaigns and track their performance to optimize your marketing strategy.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile-Friendly</h3>
+                    <p>Generate QR codes that work seamlessly across all mobile devices, ensuring maximum accessibility for your audience.</p>
+                </div>
+            </div>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <i class="fas fa-keyboard"></i>
+                <h3>Step 1</h3>
+                <p>Enter your text or URL in the input field below</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-wand-magic-sparkles"></i>
+                <h3>Step 2</h3>
+                <p>Click generate to create your QR code instantly</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-download"></i>
+                <h3>Step 3</h3>
+                <p>Download your QR code and start using it</p>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label for="qr-text">Enter Text or URL</label>
+                <input type="text" id="qr-text" placeholder="Example: https://www.yourwebsite.com" />
+            </div>
+            <button class="generate-btn" onclick="generateQR()">
+                <i class="fas fa-qrcode"></i> Generate QR Code
             </button>
         </div>
-        <div class="img-border"><!-- Image border -->
-            <!-- Image -->
-            <img src="" height="150px" width="150px" alt="QR Code Image" id="qr-image">
+
+        <div class="loading"></div>
+
+        <div class="result-section" id="result-section">
+            <div class="qr-container">
+                <img src="" alt="QR Code" id="qr-image" class="qr-image">
+            </div>
+            <button class="download-btn" id="downloadBtn">
+                <i class="fas fa-download"></i> Download QR Code
+            </button>
         </div>
-        <button class="btn" id="downloadBtn"><i class="fa fa-download"></i> Download</button>
     </div>
 
-    <!-- Ensure that qr_code.js is loaded after the HTML elements -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="qr_code.js"></script>
-    
-</body>
+    <script>
+        function generateQR() {
+            const text = document.getElementById('qr-text').value;
+            const qrImage = document.getElementById('qr-image');
+            const resultSection = document.getElementById('result-section');
+            const loading = document.querySelector('.loading');
 
+            if (!text) {
+                alert('Please enter text or URL to generate QR code');
+                return;
+            }
+
+            // Show loading animation
+            loading.style.display = 'block';
+            resultSection.style.display = 'none';
+
+            // Generate QR code
+            qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(text)}`;
+
+            // When image loads, hide loading and show result
+            qrImage.onload = function() {
+                loading.style.display = 'none';
+                resultSection.style.display = 'block';
+                // Smooth scroll to result
+                resultSection.scrollIntoView({ behavior: 'smooth' });
+            };
+        }
+
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const qrImage = document.getElementById('qr-image');
+            if (qrImage.src) {
+                const xhr = new XMLHttpRequest();
+                xhr.responseType = 'blob';
+                xhr.onload = function() {
+                    const a = document.createElement('a');
+                    a.href = window.URL.createObjectURL(xhr.response);
+                    a.download = 'qr-code.png';
+                    a.style.display = 'none';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(a.href);
+                    document.body.removeChild(a);
+                };
+                xhr.open('GET', qrImage.src);
+                xhr.send();
+            }
+        });
+    </script>
+</body>
 </html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Business QR Code Generator | FreeLixe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6B73FF, #000DFF);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('/api/placeholder/1920/600');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #6B73FF, #000DFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(45deg, #6B73FF, #000DFF);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(107, 115, 255, 0.2);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #6B73FF;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #6B73FF, #000DFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(107, 115, 255, 0.1), rgba(0, 13, 255, 0.1));
+            pointer-events: none;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .tab.active {
+            background: linear-gradient(45deg, #6B73FF, #000DFF);
+            color: white;
+            box-shadow: 0 5px 15px rgba(107, 115, 255, 0.3);
+        }
+
+        .input-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid #e1e1e1;
+            border-radius: 15px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .input-group input:focus {
+            border-color: #6B73FF;
+            box-shadow: 0 0 0 4px rgba(107, 115, 255, 0.1);
+            outline: none;
+        }
+
+        .generate-btn {
+            background: linear-gradient(45deg, #6B73FF, #000DFF);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .generate-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .generate-btn:hover::before {
+            left: 100%;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(107, 115, 255, 0.3);
+        }
+
+        .result-section {
+            display: none;
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 20px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .qr-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .qr-container::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px dashed rgba(107, 115, 255, 0.2);
+            border-radius: 15px;
+            pointer-events: none;
+        }
+
+        .download-options {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .download-btn {
+            background: white;
+            color: #6B73FF;
+            border: 2px solid #6B73FF;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            min-width: 200px;
+            justify-content: center;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(45deg, #6B73FF, #000DFF);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(107, 115, 255, 0.2);
+        }
+
+        .business-benefits {
+            padding: 4rem 0;
+            background: #f8f9fa;
+            border-radius: 30px;
+            margin: 4rem 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(107, 115, 255, 0.1);
+        }
+
+        .benefit-card i {
+            font-size: 2.5rem;
+            color: #6B73FF;
+            margin-bottom: 1rem;
+        }
+
+        .statistics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 2rem;
+            background: linear-gradient(45deg, #6B73FF, #000DFF);
+            border-radius: 20px;
+            color: white;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .main-content {
+                padding: 1.5rem;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                width: 100%;
+            }
+
+            .download-options {
+                flex-direction: column;
+            }
+
+            .download-btn {
+                width: 100%;
+            }
+
+            .statistics {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .loading {
+            display: none;
+            margin: 2rem 0;
+        }
+
+        .loading::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #6B73FF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Premium Business QR Code Generator</h1>
+            <p>Create professional, customizable QR codes for your business needs</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-palette"></i>
+                <h3>Custom Branding</h3>
+                <p>Add your logo and brand colors to make your QR codes unique</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Analytics</h3>
+                <p>Track scans and engagement with detailed analytics</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Dynamic QR Codes</h3>
+                <p>Update your QR code content anytime without reprinting</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="tabs">
+                <button class="tab active">
+                    <i class="fas fa-link"></i> Website URL
+                </button>
+                <button class="tab">
+                    <i class="fas fa-file-alt"></i> vCard
+                </button>
+                <button class="tab">
+                    <i class="fas fa-wifi"></i> Wi-Fi
+                </button>
+                <button class="tab">
+                    <i class="fas fa-map-marker-alt"></i> Location
+                </button>
+            </div>
+
+            <div class="input-group">
+                <label for="qr-input">Enter your website URL</label>
+                <input type="text" id="qr-input" placeholder="https://www.yourbusiness.com" />
+            </div>
+
+            <button class="generate-btn" onclick="generateQR()">
+                <i class="fas fa-magic"></i> Generate Premium QR Code
+            </button>
+
+            <div class="loading"></div>
+
+            <div class="result-section" id="result-section">
+                <div class="qr-container">
+                    <img src="" alt="QR Code" id="qr-image" style="max-width: 250px;">
+                </div>
+                <div class="download-options">
+                    <button class="download-btn" onclick="downloadQR('png')">
+                        <i class="fas fa-download"></i> PNG
+                    </button>
+                    
+
+                <div class="download-options">
+                    <button class="download-btn" onclick="downloadQR('png')">
+                        <i class="fas fa-download"></i> Download PNG
+                    </button>
+                    <button class="download-btn" onclick="downloadQR('svg')">
+                        <i class="fas fa-vector-square"></i> Download SVG
+                    </button>
+                    <button class="download-btn" onclick="downloadQR('pdf')">
+                        <i class="fas fa-file-pdf"></i> Download PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="business-benefits">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #1a1a1a;">Why Choose Our QR Solutions</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Optimized</h3>
+                    <p>Perfect scanning experience on all devices</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Secure & Reliable</h3>
+                    <p>Enterprise-grade security for your QR codes</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Custom Design</h3>
+                    <p>Match your brand identity perfectly</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Easy Updates</h3>
+                    <p>Change content anytime without new codes</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="statistics">
+            <div class="stat-item">
+                <div class="stat-number">1M+</div>
+                <div class="stat-label">QR Codes Generated</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Business Users</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99.9%</div>
+                <div class="stat-label">Uptime</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support</div>
+            </div>
+        </div>
+
+        <div class="scan-instructions" style="background: white; padding: 3rem; border-radius: 20px; margin-top: 3rem;">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #1a1a1a;">How to Use Your QR Code</h2>
+            <div class="scan-steps" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div class="step" style="text-align: center;">
+                    <i class="fas fa-camera" style="font-size: 2.5rem; color: #6B73FF; margin-bottom: 1rem;"></i>
+                    <h3>Open Camera</h3>
+                    <p>Use your smartphone's camera app</p>
+                </div>
+                <div class="step" style="text-align: center;">
+                    <i class="fas fa-qrcode" style="font-size: 2.5rem; color: #6B73FF; margin-bottom: 1rem;"></i>
+                    <h3>Scan Code</h3>
+                    <p>Point camera at the QR code</p>
+                </div>
+                <div class="step" style="text-align: center;">
+                    <i class="fas fa-mouse-pointer" style="font-size: 2.5rem; color: #6B73FF; margin-bottom: 1rem;"></i>
+                    <h3>Click Link</h3>
+                    <p>Tap the notification to open</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateQR() {
+            const input = document.getElementById('qr-input').value;
+            const qrImage = document.getElementById('qr-image');
+            const resultSection = document.getElementById('result-section');
+            const loading = document.querySelector('.loading');
+
+            if (!input) {
+                alert('Please enter a URL or text to generate QR code');
+                return;
+            }
+
+            loading.style.display = 'block';
+            resultSection.style.display = 'none';
+
+            qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(input)}`;
+
+            qrImage.onload = function() {
+                loading.style.display = 'none';
+                resultSection.style.display = 'block';
+                resultSection.scrollIntoView({ behavior: 'smooth' });
+            };
+        }
+
+        function downloadQR(format) {
+            const qrImage = document.getElementById('qr-image');
+            if (qrImage.src) {
+                const a = document.createElement('a');
+                a.href = qrImage.src;
+                a.download = `business-qr-code.${format}`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+        }
+
+        // Tab switching functionality with animation
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update input placeholder based on selected tab
+                const input = document.getElementById('qr-input');
+                const label = document.querySelector('.input-group label');
+                
+                switch(this.innerText.trim()) {
+                    case 'Website URL':
+                        input.placeholder = 'https://www.yourbusiness.com';
+                        label.textContent = 'Enter your website URL';
+                        break;
+                    case 'vCard':
+                        input.placeholder = 'John Doe, Marketing Director';
+                        label.textContent = 'Enter contact information';
+                        break;
+                    case 'Wi-Fi':
+                        input.placeholder = 'Network Name';
+                        label.textContent = 'Enter Wi-Fi network name';
+                        break;
+                    case 'Location':
+                        input.placeholder = 'Business Address';
+                        label.textContent = 'Enter location address';
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
+
